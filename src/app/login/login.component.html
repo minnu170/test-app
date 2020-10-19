@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <form class="example-form" name="loginForm" [formGroup]="loginForm">
+        <h2>LOGIN</h2>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" required formControlName="email"/>
+        <mat-error *ngIf="loginForm.get('email').hasError('email')">
+            Please enter a valid email address
+        </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" required formControlName="password"/>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="submit-button" (click)="login()" [disabled]="loginForm.invalid">
+          Login
+        </button>
+      </form>
+      <span class="text">Don't have an account?</span>
+      <a class="link" [routerLink]="'/register'">Register</a>
+    </mat-card-content>
+  </mat-card>
+</div>
